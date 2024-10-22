@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-export default function Page({ params }: { params: { dynamic: string } }) {
+export default async function Page(props: { params: Promise<{ dynamic: string }> }) {
+  const params = await props.params;
   return (
     <div className="text-white flex flex-col gap-3">
       dynamic route: {params.dynamic}
